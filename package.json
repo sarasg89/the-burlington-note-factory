@@ -1,14 +1,29 @@
 {
-  "name": "note-taker",
+  "name": "the-burlington-note-factory",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sara Seoane Garcia",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarasg89/the-burlington-note-factory.git"
+  },
+  "keywords": [
+    "notetaker",
+    "notes",
+    "shorthand",
+    "express",
+    "api"
+  ],
+  "bugs": {
+    "url": "https://github.com/sarasg89/the-burlington-note-factory/issues"
+  },
+  "homepage": "https://github.com/sarasg89/the-burlington-note-factory#readme"
 }

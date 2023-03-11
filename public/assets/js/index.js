@@ -53,11 +53,11 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
-  if (activeNote.id) {
+  if (activeNote.noteId) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
-    noteTitle.value = activeNote.title;
-    noteText.value = activeNote.text;
+    noteTitle.value = activeNote.noteTitle;
+    noteText.value = activeNote.noteText;
   } else {
     noteTitle.removeAttribute('readonly');
     noteText.removeAttribute('readonly');
@@ -68,8 +68,8 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   const newNote = {
-    title: noteTitle.value,
-    text: noteText.value,
+    noteTitle: noteTitle.value,
+    noteText: noteText.value,
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -83,9 +83,9 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
 
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).noteId;
 
-  if (activeNote.id === noteId) {
+  if (activeNote.noteId === noteId) {
     activeNote = {};
   }
 
@@ -159,7 +159,7 @@ const renderNoteList = async (notes) => {
   }
 
   jsonNotes.forEach((note) => {
-    const li = createLi(note.title);
+    const li = createLi(note.noteTitle);
     li.dataset.note = JSON.stringify(note);
 
     noteListItems.push(li);

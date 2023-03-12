@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "noteTitle": "Hello Ollie",
+        "noteText": "This is a note for Ollie, private correspondance",
+        "noteId": "9af8"
+    },
+    {
+        "noteTitle": "Note instructions",
+        "noteText": "Notes can only be typed in once\nIf a note is saved, it can't be edited\nA note can be deleted forever",
+        "noteId": "89f1"
+    }
+]

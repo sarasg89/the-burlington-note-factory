@@ -1,8 +1,8 @@
 const fs = require('fs');
-const util = require('util');
 
-// Promise version of fs.readFile
-const readFromFile = util.promisify(fs.readFile);
+const readFromFile = (file) => {
+  return fs.readFileSync(file, 'utf-8');
+}
 /**
  *  Function to write data to the JSON file given a destination and some content
  *  @param {string} destination The file you want to write to.
@@ -19,25 +19,30 @@ const writeToFile = (destination, content) =>
  *  @param {string} file The path to the file you want to save to.
  *  @returns {void} Nothing
  */
+// const readAndAppend = (content, file) => {
+//   fs.readFile(file, 'utf8', (err, data) => {
+//     if (err) {
+//       console.error(err);
+//     } else {
+//       const parsedData = JSON.parse(data);
+//       parsedData.push(content);
+//       writeToFile(file, parsedData);
+//     }
+//   });
+// };
+
 const readAndAppend = (content, file) => {
-  fs.readFile(file, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-    } else {
-      const parsedData = JSON.parse(data);
-      parsedData.push(content);
-      writeToFile(file, parsedData);
-    }
-  });
-};
+  let fileContents = fs.readFileSync(file, 'utf-8');
+  const parsedData = JSON.parse(fileContents);
+  parsedData.push(content);
+  writeToFile(file, parsedData);
+}
 
 const deleteFromFile = (file, noteId) => {
-  readFromFile(file)
-    .then((data) => {
-      let notes = JSON.parse(data);
-      let notesWithoutDeleteId = notes.filter(note => note.noteId !== noteId);
-      writeToFile(file, notesWithoutDeleteId)
-    });
+  let fileContents = readFromFile(file)
+  let notes = JSON.parse(fileContents);
+  let notesWithoutDeleteId = notes.filter(note => note.noteId !== noteId);
+  writeToFile(file, notesWithoutDeleteId)
 };
 
 module.exports = { readFromFile, writeToFile, readAndAppend, deleteFromFile };

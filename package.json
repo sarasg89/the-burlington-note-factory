@@ -4,7 +4,7 @@
   "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Sara Seoane Garcia",
   "license": "MIT",
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/sarasg89/the-burlington-note-factory/issues"
   },
-  "homepage": "https://github.com/sarasg89/the-burlington-note-factory#readme"
+  "homepage": "https://github.com/sarasg89/the-burlington-note-factory#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }

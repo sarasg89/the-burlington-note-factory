@@ -27,6 +27,11 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
 );
 
+// GET default route
+app.get('*',function (req, res) {
+  res.redirect('/');
+});
+
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );

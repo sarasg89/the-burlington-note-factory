@@ -5,7 +5,7 @@ const path = require('path');
 
 // GET route for retrieving all the notes
 notes.get('/', (req, res) => {
-    let fileContents = readFromFile(path.join(__dirname, '../db/notes.json'));
+    let fileContents = readFromFile(path.join(__dirname, '../db/db.json'));
     res.json(JSON.parse(fileContents));
 });
 
@@ -22,8 +22,8 @@ notes.post('/', (req, res) => {
             noteId: uuid(),
         };
 
-        readAndAppend(newNote, path.join(__dirname, '../db/notes.json'));
-        res.json(`Note saved successfully`);
+        readAndAppend(newNote, path.join(__dirname, '../db/db.json'));
+        res.json(newNote);
     } else {
         res.errored('Error in saving note');
     }
@@ -36,7 +36,7 @@ notes.delete('/:noteId', (req, res) => {
     if (req.params) {
         const { noteId } = req.params;
 
-        deleteFromFile(path.join(__dirname, '../db/notes.json'), noteId);
+        deleteFromFile(path.join(__dirname, '../db/db.json'), noteId);
         res.json(`Note deleted successfully`);
     } else {
         res.errored('Error in deleting note');

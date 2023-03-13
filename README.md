@@ -11,22 +11,55 @@ This application can be used to write and save notes. The application uses and E
 - [Installation](#installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
+- [Deployment](#deployment)
 - [Credits](#credits)
 - [License](#license)
 
 ## Installation
 
+Ensure that you have Node.js installed, v16 is best. You can follow [this](https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs) guide for installation instructions.
+
+Clone this repository:
+
+>`git clone git@github.com:sarasg89/the-burlington-note-factory.git`
+
+Navigate into the directory where you cloned this repository:
+
+>`cd ./the-burlington-note-factory`
+
+Run npm install to retrieve dependencies:
+
+>`npm install`
+
 ## Usage
+
+Open your terminal and navigate to the directory
+
+>`cd ./the-burlington-note-factory`
+
+Run node to initialize the application
+
+>`npm start`
 
 ### Screenshots
 
+![home page](./public/assets/images/home.png)
+
+![new note](./public/assets/images/new%20note.png)
+
+![view note](./public/assets/images/view%20note.png)
+
 ## Deployment
+
+This application has been deployed with Heroku, you can access it [here](https://afternoon-mountain-42259.herokuapp.com/).
 
 ## Credits
 
 Starter code found in the [miniature-eureka repo](https://github.com/coding-boot-camp/miniature-eureka).
 
 I searched several threads in Stack Overflow looking for a way to delete existing notes, in the end I found [this](https://stackoverflow.com/a/65028533) answer provided the best solution.
+
+I followed [these instructions](https://stackoverflow.com/a/37885428) to create a default GET route.
 
 ## License
 
